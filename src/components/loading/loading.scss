@@ -1,0 +1,8 @@
+@import "../../scss/variables";
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: $mainColor;
+}

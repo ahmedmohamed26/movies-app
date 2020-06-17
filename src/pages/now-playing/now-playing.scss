@@ -1,0 +1,125 @@
+@import "../../scss/variables";
+
+.now-playing{
+    padding: $paddingTitle;
+    .top-rated {
+        h4 {
+            font-size: $large-bold;
+            color: $secondaryColor;
+            font-family: $fontFamily;
+            text-transform: capitalize;
+        }
+
+        .link-item {
+            text-decoration: none;
+            color: $secondaryColor;
+            text-transform: capitalize;
+            font-size: $button-text;
+
+        }
+    }
+
+    .parent {
+        margin-bottom: $margin-bottom;
+        .poster {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            transition: $transition;
+            overflow: hidden;
+            box-shadow: $box-shadow;
+            img {
+                width: 100%;
+                height: 100%;
+                transition: $transition;
+            }
+
+            .title-movie {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                margin: auto;
+                transition: $transition;
+                z-index: 55555;
+
+                h5 {
+                    font-size: $defaultFont;
+                    color: #fff;
+
+                }
+
+                h6 {
+                    font-size: $small-size;
+                    color: #fff;
+                }
+            }
+
+  
+
+
+
+            .vote-average {
+                background-color: $mainColor;
+                color: #000;
+                font-size: $medium-light;
+                border-radius: $border-radius;
+                font-weight: 700;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 60px;
+                height: 60px;
+                padding: 8px;
+                text-align: center;
+                box-shadow: $box-shadow;
+                transition: $transition;
+                z-index: 5555;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                background: $mainColor;
+                border-radius: $border-radius;
+                opacity: .3;
+                height: 0;
+                width: 0;
+                transition: $transition;
+                z-index: 333;
+            }
+
+            &:after {
+                content: '';
+                width: 100%;
+                height: 80%;
+                background: linear-gradient(to top, #141631, #0000);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+
+            &:hover .vote-average {
+                background: $gray-dark;
+                color: $mainColor;
+
+            }
+
+            &:hover:before {
+                height: 100%;
+                width: 100%;
+            }
+
+            &:hover:after {
+                height: 0;
+            }
+        }
+    }
+}

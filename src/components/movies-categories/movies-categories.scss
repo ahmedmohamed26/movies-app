@@ -1,0 +1,26 @@
+@import "../../scss/variables";
+
+.movies-categories {
+    padding: $paddingTitle;
+    margin-top: $margin-top;
+    z-index: 555;
+    position: sticky;
+    right: 0;
+    top: 50px;
+    ul {
+        padding: $paddingSection;
+        background-color: $active-background;
+        border-radius: $border-radius;
+        margin-bottom: 0;
+        box-shadow: $box-shadow;
+
+        .nav-item {
+            text-decoration: none;
+            color: $secondaryColor;
+            h6 {
+                cursor: pointer;
+            }
+        }
+
+    }
+}
