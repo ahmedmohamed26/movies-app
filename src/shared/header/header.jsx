@@ -3,7 +3,7 @@ import { Navbar } from 'reactstrap';
 import { Container } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import './header.scss';
-import coverBackground from '../../assets/images/cover-img.jpg';
+
 
 const Header = () => {
 	return (
@@ -33,7 +33,7 @@ const Header = () => {
 					</ul>
 				</Container>
 			</Navbar>
-			<img src={coverBackground} alt='cover' />
+	
 		</header>
 
 	);
