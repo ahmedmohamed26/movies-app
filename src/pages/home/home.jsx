@@ -7,7 +7,7 @@ import SliderImg from '../../components/slider/slider';
 import MoviesCategories from '../../components/movies-categories/moviesCategories';
 import { Link } from 'react-router-dom';
 import Loading from '../../components/loading/loading';
-const Home = () => {
+const Home = (props) => {
 	const [allMovies, setAllMovies] = useState([]);
 	const [loadSpinner, setloadSpinner] = useState(false);
 
@@ -21,7 +21,6 @@ const Home = () => {
 			.then(({ data }) => {
 				console.log(data);
 				setAllMovies(data.results);
-				allMovies.slice(2);
 				setloadSpinner(false);
 			})
 			.catch((error) => {

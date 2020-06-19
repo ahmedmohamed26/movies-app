@@ -8,10 +8,10 @@ const MoviesCategories = (props) => {
 			<section className='movies-categories'>
 				<ul className='list-unstyled'>
 					<Link className='nav-item'>
-						<h6 onClick={() => props.getMovies('top_rated')}>Top Rated</h6>
+						<h6 onClick={() => props.getMovies('top_rated','top rated')}>Top Rated</h6>
 					</Link>
 					<Link className='nav-item'>
-						<h6  onClick={() => props.getMovies('now_playing')} >Now Playing</h6>
+						<h6  onClick={() => props.getMovies('now_playing','now playing')} >Now Playing</h6>
 					</Link>
 				</ul>
 			</section>
