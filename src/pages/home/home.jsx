@@ -17,7 +17,7 @@ const Home = (props) => {
 
 	function getNowPlayingMovies() {
 		setloadSpinner(true);
-		NowPlayingMovies('top_rated',1)
+		NowPlayingMovies('now_playing',1)
 			.then(({ data }) => {
 				console.log(data);
 				setAllMovies(data.results);

@@ -1,30 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import './top-rated.scss';
-import { TopRated, URL_IMAGE } from '../../services/movies';
+import { NowPlayingMovies, URL_IMAGE } from '../../services/movies';
 import { Link } from 'react-router-dom';
 import Loading from '../../components/loading/loading';
 import { Container } from 'reactstrap';
+import PaginationComponent from 'react-reactstrap-pagination';
 
 const TopRatedMovies = () => {
 	const [allMovies, setAllMovies] = useState([]);
+	const [ActivePage, setActivePage] = useState(1);
+	const [totalPages, setTotalPages] = useState(5);
 	const [loadSpinner, setloadSpinner] = useState(false);
 	useEffect(() => {
-		getTopRated();
-	}, []);
+		getNowPlayingMovies();
+	}, [ActivePage]);
 
-	function getTopRated() {
+	function getNowPlayingMovies() { 
 		setloadSpinner(true);
-		TopRated(1)
+		NowPlayingMovies('top_rated', ActivePage)
 			.then(({ data }) => {
 				console.log(data);
 				setAllMovies(data.results);
-				allMovies.slice(2);
+				setTotalPages(data.total_pages)
 				setloadSpinner(false);
 			})
 			.catch((error) => {
 				throw new Error(error.message);
 			});
 	}
+
+	const handleSelected = (selectedPage) => {
+		setActivePage(selectedPage);
+	  }
+
 	return (
 		<section className='top-rated-section'>
 			<Container>
@@ -36,7 +44,7 @@ const TopRatedMovies = () => {
 						{!loadSpinner ? (
 							<div className='row'>
 								{allMovies.map((item, index) => (
-									<div className='col-md-3 col-xs-6 col-sm-6'>
+									<div className='col-md-3 col-xs-6 col-sm-6' key={index}>
 										<div className='parent'>
 											<Link to={'/details-movie'} className='item-link'>
 												<div className='parent' key={index + 1}>
@@ -59,6 +67,14 @@ const TopRatedMovies = () => {
 										</div>
 									</div>
 								))}
+								<PaginationComponent
+									size='sm'
+									totalItems={totalPages}
+									pageSize={5}
+									onSelect={handleSelected}
+									maxPaginationNumbers={5}
+									defaultActivePage={ActivePage}
+								/>
 							</div>
 						) : (
 							<Loading />

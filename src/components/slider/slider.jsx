@@ -16,7 +16,7 @@ const SliderImg = () => {
 
 	function getNowPlayingMovies() {
 		setloadSpinner(true);
-		NowPlayingMovies('now_playing',1)
+		NowPlayingMovies('popular',1)
 			.then(({ data }) => {
 				console.log(data);
 				setMovies(data.results);
