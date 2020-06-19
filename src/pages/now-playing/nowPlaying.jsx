@@ -49,7 +49,7 @@ const NowPlaying = () => {
 															<h6>{item.vote_average}</h6>
 														</div>
 														<div className='title-movie text-center'>
-															<h5>{item.original_title}</h5>
+															<h5>{item.title}</h5>
 															<h6>{item.release_date}</h6>
 														</div>
 													</div>

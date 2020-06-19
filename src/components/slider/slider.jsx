@@ -16,7 +16,7 @@ const SliderImg = () => {
 
 	function getNowPlayingMovies() {
 		setloadSpinner(true);
-		NowPlayingMovies(1)
+		NowPlayingMovies('now_playing',1)
 			.then(({ data }) => {
 				console.log(data);
 				setMovies(data.results);
@@ -82,7 +82,7 @@ const SliderImg = () => {
 										<h6>{item.vote_average}</h6>
 									</div>
 									<div className='title-movie text-center'>
-										<h5>{item.original_title}</h5>
+										<h5>{item.title}</h5>
 										<h6>{item.release_date}</h6>
 									</div>
 								</div>
