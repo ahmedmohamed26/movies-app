@@ -7,8 +7,10 @@ import SliderImg from '../../components/slider/slider';
 import MoviesCategories from '../../components/movies-categories/moviesCategories';
 import { Link } from 'react-router-dom';
 import Loading from '../../components/loading/loading';
-const Home = (props) => {
+const Home = () => {
+
 	const [allMovies, setAllMovies] = useState([]);
+	const [titleCategory, setTitleCategory] = useState('Now Playing');
 	const [loadSpinner, setloadSpinner] = useState(false);
 
 	useEffect(() => {
@@ -31,17 +33,19 @@ const Home = (props) => {
 	const getMovies = (props) => {
 		console.log(props)
 		setloadSpinner(true);
-		NowPlayingMovies(props,1)
+		NowPlayingMovies(props.type,1)
 			.then(({ data }) => {
 				console.log(data);
+				setTitleCategory(props.title)
 				setAllMovies(data.results);
-				allMovies.slice(2);
 				setloadSpinner(false);
 			})
 			.catch((error) => {
 				throw new Error(error.message);
 			});
 	}
+
+
 
 	
 
@@ -56,9 +60,9 @@ const Home = (props) => {
 						<section className='all-categories'>
 							<div className='top-rated'>
 								<div className='d-flex justify-content-between align-items-center mb-3'>
-									<h4 className='mb-0'>top rated</h4>
+									<h4 className='mb-0'>{titleCategory}</h4>
 									<Link className='link-item' to='/'>
-										see all top rated
+										see all <span>{titleCategory}</span> movies
 									</Link>
 								</div>
 								{!loadSpinner ? (
@@ -66,7 +70,7 @@ const Home = (props) => {
 										{allMovies.map((item, index) => (
 											<div className='col-md-3 col-xs-6 col-sm-6'>
 												<div className='parent'>
-													<Link to={'/details-movie'} className='item-link'>
+													<Link to={`/movie-details/${item.id}`} className='item-link'>
 														<div className='parent' key={index + 1}>
 															<div className='poster'>
 																<img

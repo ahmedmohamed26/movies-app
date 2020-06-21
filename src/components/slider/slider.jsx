@@ -70,7 +70,7 @@ const SliderImg = () => {
 			{!loadSpinner ? (
 				<Slider {...settings}>
 					{movies.map((item, index) => (
-						<Link to={'/details-movie'} className='item-link'>
+						<Link to={`/movie-details/${item.id}`} className='item-link'>
 							<div className='parent' key={index + 1}>
 								<div className='poster'>
 									<img

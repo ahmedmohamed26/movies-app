@@ -52,7 +52,6 @@
                 img {
                     width: 100%;
                     height: 100%;
-                    transition: $transition;
                 }
     
                 .title-movie {
@@ -63,7 +62,6 @@
                     margin: auto;
                     transition: $transition;
                     z-index: 55555;
-    
                     h5 {
                         font-size: $defaultFont;
                         color: #fff;
@@ -138,6 +136,7 @@
                 &:hover:after {
                     height: 0;
                 }
+          
             }
     
     
