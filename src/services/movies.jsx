@@ -19,9 +19,10 @@ export async function movieDetails(idMovie) {
     return response;
 }
 
-
-
-
+export async function searchMovies(keyword) {
+    let response = await axios.get(`${URL_API}search/movie${API_KEY}&language=en-US&query=${keyword}&page=1&include_adult=false`)
+    return response;
+}
 
 // export async function TvShow(typeMovies,numberPage) {
 //     let response = await axios.get(`${URL_API}tv/${typeMovies}${API_KEY}&language=en-US&page=${numberPage}`)

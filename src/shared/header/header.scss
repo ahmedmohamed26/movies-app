@@ -1,32 +1,96 @@
 @import "../../scss/variables";
+
 header {
 
 
     .navbar-brand {
         padding: 1rem 0;
-        color: $gray;
+        color: $mainColor;
         font-weight: 700;
+
+        &:hover,
+        &:focus {
+            color: $mainColor;
+        }
     }
+
     .navbar {
         padding: 0;
-        background: #fff;
+        background: #000;
         position: fixed;
         width: 100%;
         z-index: 999999999;
         box-shadow: 0 0 5px rgba(121, 121, 121, .3);
+
+        form {
+            position: relative;
+
+            .form-control{
+                &:focus{
+                    box-shadow: none;
+                    outline: none;
+                }
+            }
+            .list-movies {
+                background: #fff;
+                width: 350px;
+                height: auto;
+                max-height: 250px;
+                overflow-y: scroll;
+                display: block;
+                text-transform: capitalize;
+                position: absolute;
+                top: 45px;
+                border-radius: 5px;
+                margin: 0;
+                li {
+                    display: block;
+                    transition: all .3s ease-in-out;
+                    padding: 5px 10px;
+                    margin-right: 0;
+                    border-radius: 5px;
+
+                    &:hover {
+                        background: #ddd;
+                    }
+
+                    .item-link {
+                        text-decoration: none;
+                        color: $secondaryColor;
+                        display: flex;
+                        align-items: center;
+
+                        h6 {
+                            margin-bottom: 0;
+                        }
+
+                        img {
+                            width: 60px;
+                            height: 60px;
+                            border-radius: 5px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
         ul {
             padding: 1rem 0;
             margin-bottom: 0;
             display: flex;
+
             li {
                 margin-right: 1rem;
                 cursor: pointer;
+
                 .nav-item {
                     color: #777;
                     font-weight: 700;
                     text-transform: capitalize;
                     text-decoration: none;
                 }
+
                 .active {
                     color: $mainColor;
                 }
