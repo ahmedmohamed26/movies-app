@@ -38,15 +38,17 @@ const Header = () => {
 					<NavLink className='navbar-brand' to='/home'>
 						Movies App
 					</NavLink>
+
 					<form id='form'>
 						<FormGroup className='mb-0'>
 							<Input
 								className='form-control'
 								type='text'
 								name='search'
-								placeholder='Movie search'
+								placeholder='Movie Search'
 								onChange={(event) => getSearchMovies(event.target.value)}
 							/>
+												<i class="fa fa-search" aria-hidden="true"></i>
 						</FormGroup>
 						{listMovies.length > 0 ? (
 							<ul className='list-unstyled list-movies'>

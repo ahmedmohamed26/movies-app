@@ -2,10 +2,11 @@ import React from 'react';
 import './footer.scss';
 
 const Footer = () => {
+        const Year = new Date().getFullYear()
 
 	return (
-        <footer>
-            
+        <footer className='text-center'>
+                        <h6>Copyright © {Year} </h6>
         </footer>
 
 	);

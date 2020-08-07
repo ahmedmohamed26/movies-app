@@ -1,22 +1,18 @@
 @import "../../scss/variables";
 
 header {
-
-
     .navbar-brand {
         padding: 1rem 0;
         color: $mainColor;
         font-weight: 700;
-
         &:hover,
         &:focus {
             color: $mainColor;
         }
     }
-
     .navbar {
         padding: 0;
-        background: #000;
+        background: $background;
         position: fixed;
         width: 100%;
         z-index: 999999999;
@@ -24,18 +20,36 @@ header {
 
         form {
             position: relative;
-
-            .form-control{
-                &:focus{
-                    box-shadow: none;
-                    outline: none;
+            .form-group{
+                position: relative;
+                .form-control {
+                    border-radius: 25px;
+                    line-height: 10;
+                    width: 280px;
+                    text-indent: 15px;
+                    transition: $transition;
+                    &:focus{
+                        width: 300px;
+                    }
+                    &:focus {
+                        box-shadow: none;
+                        outline: none;
+                    }
+                }
+                .fa{
+                    position: absolute;
+                    left: 7px;
+                    top: 10px;
+                    z-index: 555;
+                    color: $secondaryColor;
                 }
             }
+
             .list-movies {
                 background: #fff;
                 width: 350px;
                 height: auto;
-                max-height: 250px;
+                max-height: 450px;
                 overflow-y: scroll;
                 display: block;
                 text-transform: capitalize;
@@ -43,6 +57,7 @@ header {
                 top: 45px;
                 border-radius: 5px;
                 margin: 0;
+
                 li {
                     display: block;
                     transition: all .3s ease-in-out;
