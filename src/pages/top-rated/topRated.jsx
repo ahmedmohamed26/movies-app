@@ -46,7 +46,7 @@ const TopRatedMovies = () => {
 								{allMovies.map((item, index) => (
 									<div className='col-md-3 col-xs-6 col-sm-6' key={index}>
 										<div className='parent'>
-											<Link to={'/details-movie'} className='item-link'>
+											<Link to={`/movie-details/${item.id}`}  className='item-link'>
 												<div className='parent' key={index + 1}>
 													<div className='poster'>
 														<img
@@ -68,8 +68,8 @@ const TopRatedMovies = () => {
 									</div>
 								))}
 								<PaginationComponent
-									size='sm'
-									totalItems={totalPages}
+									className='w-100'
+ 									totalItems={totalPages}
 									pageSize={5}
 									onSelect={handleSelected}
 									maxPaginationNumbers={5}

@@ -2,7 +2,9 @@
 
 .top-rated-section{
     padding: $paddingTitle;
+    min-height:300px;
     .top-rated {
+
         h4 {
             font-size: $large-bold;
             color: $secondaryColor;
@@ -119,6 +121,38 @@
 
             &:hover:after {
                 height: 0;
+            }
+        }
+    }
+    nav{
+        width: 100%;
+        margin-top: 25px;
+        .pagination {
+            justify-content: center;
+            .page-item{
+                margin: 0 4px;
+               .page-link{
+                border-radius: 5px;
+                background: #242526;
+                color: $secondaryColor;
+                border: none;
+                &:focus{
+                    box-shadow: none;
+                    outline: none;
+                }
+               }
+            }
+            .active{
+                .page-link{
+                    border-radius: 5px;
+                    background: $mainColor;
+                    color: #fff;
+                    border: none;
+                    &:focus{
+                        box-shadow: none;
+                        outline: none;
+                    }
+                }
             }
         }
     }
