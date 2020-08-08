@@ -144,4 +144,11 @@
     height: 30px;
     color: $mainColor;
   }
+
+  @media(max-width:768px){
+    .slick-next:before,
+    .slick-prev:before {
+      display: none;
+    }
+  }
 }

@@ -52,6 +52,7 @@ const SliderImg = () => {
 					slidesToShow: 2,
 					slidesToScroll: 2,
 					initialSlide: 2,
+					dots: true,
 				},
 			},
 			{
@@ -59,6 +60,7 @@ const SliderImg = () => {
 				settings: {
 					slidesToShow: 1,
 					slidesToScroll: 1,
+					dots: true,
 				},
 			},
 		],
