@@ -10,11 +10,12 @@
 
     ul {
         padding: $paddingSection;
-        background-color: $active-background;
+        // background-color: $active-background;
         border-radius: $border-radius;
         margin-bottom: 0;
         box-shadow: $box-shadow;
-
+        background: #242526;
+        color: $secondaryColor;
         .nav-item {
             text-decoration: none;
             color: $secondaryColor;
@@ -23,6 +24,7 @@
                 cursor: pointer;
             }
       }
+
       
 
     }

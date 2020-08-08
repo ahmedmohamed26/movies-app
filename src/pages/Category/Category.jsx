@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import './top-rated.scss';
+import './Category.scss';
 import { NowPlayingMovies, URL_IMAGE } from '../../services/movies';
 import { Link } from 'react-router-dom';
 import Loading from '../../components/loading/loading';
 import { Container } from 'reactstrap';
 import PaginationComponent from 'react-reactstrap-pagination';
 
-const TopRatedMovies = () => {
+const Category = (props) => {
+	const { type } = props.match.params;
 	const [allMovies, setAllMovies] = useState([]);
 	const [ActivePage, setActivePage] = useState(1);
 	const [totalPages, setTotalPages] = useState(5);
 	const [loadSpinner, setloadSpinner] = useState(false);
 	useEffect(() => {
 		getNowPlayingMovies();
-	}, [ActivePage]);
+		console.log(props);
+	}, [ActivePage,props]); 
 
 	function getNowPlayingMovies() { 
 		setloadSpinner(true);
-		NowPlayingMovies('top_rated', ActivePage)
+		NowPlayingMovies(type, ActivePage)
 			.then(({ data }) => {
 				console.log(data);
 				setAllMovies(data.results);
@@ -86,4 +88,4 @@ const TopRatedMovies = () => {
 	);
 };
 
-export default TopRatedMovies;
+export default Category;

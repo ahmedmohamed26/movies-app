@@ -44,7 +44,9 @@ header {
                     color: $secondaryColor;
                 }
             }
-
+            .anmi{
+                transform: translateY(0);
+            }
             .list-movies {
                 background: #fff;
                 width: 350px;
@@ -57,7 +59,8 @@ header {
                 top: 45px;
                 border-radius: 5px;
                 margin: 0;
-
+                transform: translateY(20px);
+                transition: $transition;
                 li {
                     display: block;
                     transition: all .3s ease-in-out;

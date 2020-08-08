@@ -7,10 +7,11 @@ import SliderImg from '../../components/slider/slider';
 import MoviesCategories from '../../components/movies-categories/moviesCategories';
 import { Link } from 'react-router-dom';
 import Loading from '../../components/loading/loading';
-const Home = () => {
+const Home = (props) => {
 
 	const [allMovies, setAllMovies] = useState([]);
 	const [titleCategory, setTitleCategory] = useState('Now Playing');
+	const [categoryType, setCategoryType] = useState('now_playing');
 	const [loadSpinner, setloadSpinner] = useState(false);
 
 	useEffect(() => {
@@ -35,8 +36,8 @@ const Home = () => {
 		setloadSpinner(true);
 		NowPlayingMovies(props.type,1)
 			.then(({ data }) => {
-				console.log(data);
 				setTitleCategory(props.title)
+				setCategoryType(props.type)
 				setAllMovies(data.results);
 				setloadSpinner(false);
 			})
@@ -61,7 +62,7 @@ const Home = () => {
 							<div className='top-rated'>
 								<div className='d-flex justify-content-between align-items-center mb-3'>
 									<h4 className='mb-0'>{titleCategory}</h4>
-									<Link className='link-item' to='/'>
+									<Link className='link-item' to={`movies/${categoryType}`}>
 										see all <span>{titleCategory}</span> movies
 									</Link>
 								</div>

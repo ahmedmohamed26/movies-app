@@ -9,8 +9,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
 	const [listMovies, setListMovies] = useState([]);
-
-
+	let anmi = listMovies > 0 ? 'anmi':''
 	function getSearchMovies(keyword) {
 		console.log(keyword.length)
 		if (keyword.length !== 0) {
@@ -51,7 +50,7 @@ const Header = () => {
 												<i class="fa fa-search" aria-hidden="true"></i>
 						</FormGroup>
 						{listMovies.length > 0 ? (
-							<ul className='list-unstyled list-movies'>
+							<ul className={`${anmi} list-unstyled list-movies`}>
 								{listMovies.map((movie) => {
 									return (
 										<li key={movie.id}>
@@ -82,11 +81,11 @@ const Header = () => {
 								About
 							</NavLink>
 						</li>
-						<li>
+						{/* <li>
 							<NavLink exact className='nav-item' to='/top-rated'>
 								top rated
 							</NavLink>
-						</li>
+						</li> */}
 					</ul>
 				</Container>
 			</Navbar>
