@@ -14,7 +14,6 @@ const Category = (props) => {
 	const [loadSpinner, setloadSpinner] = useState(false);
 	useEffect(() => {
 		getNowPlayingMovies();
-		console.log(props);
 	}, [ActivePage,props]); 
 
 	function getNowPlayingMovies() { 

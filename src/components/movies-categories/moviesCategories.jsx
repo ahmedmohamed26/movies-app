@@ -2,7 +2,6 @@ import React from 'react';
 import './movies-categories.scss';
 
 const MoviesCategories = (props) => {
-
 	const categoryName = (type, title, categoryName) => {
 		props.getMovies({ type: type, title: title, categoryName: categoryName });
 	};

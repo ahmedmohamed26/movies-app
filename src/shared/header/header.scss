@@ -5,11 +5,13 @@ header {
         padding: 1rem 0;
         color: $mainColor;
         font-weight: 700;
+
         &:hover,
         &:focus {
             color: $mainColor;
         }
     }
+
     .navbar {
         padding: 0;
         background: $background;
@@ -20,23 +22,28 @@ header {
 
         form {
             position: relative;
-            .form-group{
+
+            .form-group {
                 position: relative;
+
                 .form-control {
                     border-radius: 25px;
                     line-height: 10;
                     width: 280px;
                     text-indent: 15px;
                     transition: $transition;
-                    &:focus{
+
+                    &:focus {
                         width: 300px;
                     }
+
                     &:focus {
                         box-shadow: none;
                         outline: none;
                     }
                 }
-                .fa{
+
+                .fa {
                     position: absolute;
                     left: 7px;
                     top: 10px;
@@ -44,9 +51,8 @@ header {
                     color: $secondaryColor;
                 }
             }
-            .anmi{
-                transform: translateY(0);
-            }
+
+
             .list-movies {
                 background: #fff;
                 width: 350px;
@@ -61,6 +67,7 @@ header {
                 margin: 0;
                 transform: translateY(20px);
                 transition: $transition;
+
                 li {
                     display: block;
                     transition: all .3s ease-in-out;
@@ -97,16 +104,57 @@ header {
             padding: 1rem 0;
             margin-bottom: 0;
             display: flex;
+            align-items: center;
 
             li {
                 margin-right: 1rem;
                 cursor: pointer;
 
                 .nav-item {
-                    color: #777;
+                    color: $gray;
                     font-weight: 700;
                     text-transform: capitalize;
                     text-decoration: none;
+                }
+
+                .Dropdown-categories {
+                    transition: all 2s ease-in-out;
+                    .btn {
+                        background: transparent;
+                        color: $gray;
+                        border: none;
+                        font-weight: 700;
+                        text-transform: capitalize;
+                        padding: 0;
+                        &:active {
+                            background: transparent;
+                            border: none;
+                            color: $gray;
+                            box-shadow: none;
+                        }
+
+                        &:focus {
+                            outline: none;
+                            box-shadow: none;
+                        }
+                    }
+
+                    .dropdown-menu {
+                        transition: $transition;
+                        background: #242526;
+                        box-shadow: 0 0 5px rgba(121, 121, 121, .3);
+                            .link-item {
+                                color: $gray;
+                                font-weight: 500;
+                                text-decoration: none;
+                                padding: 5px 15px;
+                                display:grid;
+                                &:hover {
+                                    color: #fff;
+                                    background: $mainColor;
+                                }
+                            }
+                    }
                 }
 
                 .active {

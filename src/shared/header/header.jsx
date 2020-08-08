@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { Navbar } from 'reactstrap';
 import { Container } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
@@ -6,12 +6,14 @@ import './header.scss';
 import { FormGroup, Input } from 'reactstrap';
 import { searchMovies, URL_IMAGE } from '../../services/movies';
 import { Link } from 'react-router-dom';
+import { Dropdown, DropdownToggle, DropdownMenu } from 'reactstrap';
 
 const Header = () => {
+	const [dropdownOpen, setDropdownOpen] = useState(false);
+	const toggle = () => setDropdownOpen((prevState) => !prevState);
 	const [listMovies, setListMovies] = useState([]);
-	let anmi = listMovies > 0 ? 'anmi':''
 	function getSearchMovies(keyword) {
-		console.log(keyword.length)
+		console.log(keyword.length);
 		if (keyword.length !== 0) {
 			searchMovies(keyword)
 				.then(({ data }) => {
@@ -47,10 +49,10 @@ const Header = () => {
 								placeholder='Movie Search'
 								onChange={(event) => getSearchMovies(event.target.value)}
 							/>
-												<i class="fa fa-search" aria-hidden="true"></i>
+							<i className='fa fa-search' aria-hidden='true'></i>
 						</FormGroup>
 						{listMovies.length > 0 ? (
-							<ul className={`${anmi} list-unstyled list-movies`}>
+							<ul className='list-unstyled list-movies'>
 								{listMovies.map((movie) => {
 									return (
 										<li key={movie.id}>
@@ -77,9 +79,15 @@ const Header = () => {
 							</NavLink>
 						</li>
 						<li>
-							<NavLink exact className='nav-item' to='/about'>
-								About
-							</NavLink>
+							<Dropdown className='Dropdown-categories' isOpen={dropdownOpen} toggle={toggle}>
+								<DropdownToggle>Movies</DropdownToggle>
+								<DropdownMenu>
+									<Link className='link-item'  to={`/movies/now_playing`} onClick={() => toggle()}>Now Playing</Link>
+									<Link className='link-item'  to={`/movies/top_rated`} onClick={() => toggle()}>Top Rated</Link>
+									<Link className='link-item'  to={`/movies/upcoming`} onClick={() => toggle()}>Upcoming</Link>
+									<Link className='link-item'  to={`/movies/popular`} onClick={() => toggle()}>Popular</Link>
+								</DropdownMenu>
+							</Dropdown>
 						</li>
 						{/* <li>
 							<NavLink exact className='nav-item' to='/top-rated'>
