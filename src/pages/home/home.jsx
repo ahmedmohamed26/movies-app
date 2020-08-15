@@ -26,7 +26,6 @@ const Home = (props) => {
 		setloadSpinner(true);
 		NowPlayingMovies('popular',1)
 			.then(({ data }) => {
-				console.log(data);
 				setAllMovies(data.results);
 				setloadSpinner(false);
 			})
@@ -65,7 +64,7 @@ const Home = (props) => {
 			<Container>
 				<SliderImg />
 				<div className='row'>
-					<div className='col-md-9'>
+					<div className='col-md-9 '>
 						<section className='all-categories'>
 							<div className='top-rated'>
 								<div className='d-flex justify-content-between align-items-center mb-3'>
@@ -77,10 +76,10 @@ const Home = (props) => {
 								{!loadSpinner ? (
 									<div className='row'>
 										{allMovies.map((item, index) => (
-											<div className='col-md-3 col-xs-6 col-sm-6'>
+											<div className='col-md-3 col-xs-6'  key={index + 1}>
 												<div className='parent'>
 													<Link to={`/movie-details/${item.id}`} className='item-link'>
-														<div className='image-cover' key={index + 1}>
+														<div className='image-cover'>
 															<div className='poster'>
 																<img
 																	src={`${URL_IMAGE}` + item.poster_path}

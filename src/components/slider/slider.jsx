@@ -18,7 +18,6 @@ const SliderImg = () => {
 		setloadSpinner(true);
 		NowPlayingMovies('popular',1)
 			.then(({ data }) => {
-				console.log(data);
 				setMovies(data.results);
 				setloadSpinner(false);
 			})
@@ -73,8 +72,8 @@ const SliderImg = () => {
 			{!loadSpinner ? (
 				<Slider {...settings}>
 					{movies.map((item, index) => (
-						<Link to={`/movie-details/${item.id}`} className='item-link'>
-							<div className='parent' key={index + 1}>
+						<Link to={`/movie-details/${item.id}`} className='item-link'  key={index + 1}>
+							<div className='parent'>
 								<div className='poster'>
 									<img
 										src={`${URL_IMAGE}` + item.poster_path}

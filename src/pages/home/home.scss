@@ -153,3 +153,13 @@
     }
  
 }
+
+@media(max-width:768px){
+    .home-page{
+        .row{
+            :first-of-type{
+                order: 1;
+            }
+        }
+    }
+}

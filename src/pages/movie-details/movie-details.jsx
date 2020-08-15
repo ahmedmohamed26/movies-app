@@ -26,7 +26,6 @@ const MovieDetails = (props) => {
 		// setloadSpinner(true);
 		movieDetails(ID)
 			.then(({ data }) => {
-				console.log(data);
 				setMovie(data);
 				setGenres(data.genres);
 				setMovieCountry(data?.production_countries[0]?.name);
@@ -41,9 +40,7 @@ const MovieDetails = (props) => {
 function getVideoId() {
 	videoMovieId(ID)
 		.then(({data}) => {
-				console.log(data);
 				setVideoId(data?.results[0]?.key);
-				console.log(videoId)
 			})
 			.catch((error) => {
 				throw new Error(error.message);
@@ -80,7 +77,7 @@ function getVideoId() {
 								genre :
 								{genres
 									.flatMap((item, index) => [
-										<span className='ml-2' key={index}>
+										<span className='ml-2' key={index+1}>
 											{item.name}
 										</span>,
 										<span> ,</span>,

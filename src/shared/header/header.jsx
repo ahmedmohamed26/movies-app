@@ -13,7 +13,6 @@ const Header = () => {
 	const toggle = () => setDropdownOpen((prevState) => !prevState);
 	const [listMovies, setListMovies] = useState([]);
 	function getSearchMovies(keyword) {
-		console.log(keyword.length);
 		if (keyword.length !== 0) {
 			searchMovies(keyword)
 				.then(({ data }) => {

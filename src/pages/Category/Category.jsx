@@ -49,7 +49,7 @@ const Category = (props) => {
 					{!loadSpinner ? (
 						<div className='row'>
 							{allMovies.map((item, index) => (
-								<div className='col-md-3 col-xs-6 col-sm-6' key={index}>
+								<div className='col-md-3 col-xs-6 col-sm-6' key={index + 1}>
 									<div className='parent'>
 										<Link
 											to={`/movie-details/${item.id}`}
