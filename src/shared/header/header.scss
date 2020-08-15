@@ -35,9 +35,7 @@ header {
                     box-shadow: $box-shadow;
                     background: #242526;
                     border: none;
-                    ::-webkit-input-placeholder{
-                        color:red;
-                    }
+                    color: $secondaryColor;
                     &:focus {
                         width: 300px;
                     }
@@ -63,7 +61,7 @@ header {
 
 
             .list-movies {
-                background: #fff;
+                background: #242526;
                 width: 350px;
                 height: auto;
                 max-height: 450px;
@@ -75,7 +73,7 @@ header {
                 border-radius: 5px;
                 margin: 0;
                 transition: $transition;
-
+                padding: 5px 10px;
                 li {
                     display: block;
                     transition: all .3s ease-in-out;
@@ -84,15 +82,15 @@ header {
                     border-radius: 5px;
 
                     &:hover {
-                        background: #ddd;
+                        background: #292a2c;
                     }
 
                     .item-link {
                         text-decoration: none;
                         color: $secondaryColor;
+                        transition: $transition;
                         display: flex;
                         align-items: center;
-
                         h6 {
                             margin-bottom: 0;
                         }
