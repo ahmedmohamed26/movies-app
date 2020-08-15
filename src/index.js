@@ -5,6 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
+import '../node_modules/react-modal-video/scss/modal-video.scss';
 
 ReactDOM.render(
   <React.StrictMode>

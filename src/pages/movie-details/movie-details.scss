@@ -21,10 +21,36 @@
         }
     }
     .poster-movie {
-        padding: $paddingTitle;
+        margin: $paddingTitle;
+        position: relative;
         img {
             width: 100%;
             height: auto;
+        }
+        &:after {
+            content: '';
+            width: 100%;
+            height: 80%;
+            background: linear-gradient(to top, #141631, #0000);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .fa{
+            cursor: pointer;
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            color: $mainColor;
+            z-index: 3333;
+            justify-content: center;
+            display: flex;
+            align-items: center;
         }
     }
     .more-details{

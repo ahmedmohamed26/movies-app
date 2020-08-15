@@ -4,23 +4,27 @@ import { NowPlayingMovies, URL_IMAGE } from '../../services/movies';
 import coverBackground from '../../assets/images/cover-img.jpg';
 import { Container } from 'reactstrap';
 import SliderImg from '../../components/slider/slider';
-import MoviesCategories from '../../components/movies-categories/moviesCategories';
+import ListCategories from '../../components/listCategories/ListCategories';
 import { Link } from 'react-router-dom';
 import Loading from '../../components/loading/loading';
 const Home = (props) => {
 
 	const [allMovies, setAllMovies] = useState([]);
-	const [titleCategory, setTitleCategory] = useState('Now Playing');
-	const [categoryType, setCategoryType] = useState('now_playing');
+	const [titleCategory, setTitleCategory] = useState('popular');
+	const [categoryType, setCategoryType] = useState('popular');
 	const [loadSpinner, setloadSpinner] = useState(false);
 
 	useEffect(() => {
+		window.scrollTo({
+			top: 0,
+			left: 0,
+		  });
 		getNowPlayingMovies();
 	}, []);
 
 	function getNowPlayingMovies() {
 		setloadSpinner(true);
-		NowPlayingMovies('now_playing',1)
+		NowPlayingMovies('popular',1)
 			.then(({ data }) => {
 				console.log(data);
 				setAllMovies(data.results);
@@ -32,7 +36,11 @@ const Home = (props) => {
 	}
 
 	const getMovies = (props) => {
-		console.log(props)
+		window.scrollTo({
+			top: 650,
+			left: 0,
+			behavior: 'smooth'
+		  });
 		setloadSpinner(true);
 		NowPlayingMovies(props.type,1)
 			.then(({ data }) => {
@@ -72,7 +80,7 @@ const Home = (props) => {
 											<div className='col-md-3 col-xs-6 col-sm-6'>
 												<div className='parent'>
 													<Link to={`/movie-details/${item.id}`} className='item-link'>
-														<div className='parent' key={index + 1}>
+														<div className='image-cover' key={index + 1}>
 															<div className='poster'>
 																<img
 																	src={`${URL_IMAGE}` + item.poster_path}
@@ -103,7 +111,7 @@ const Home = (props) => {
 						</section>
 					</div>
 					<div className='col-md-3'>
-						<MoviesCategories getMovies={getMovies} />
+						<ListCategories getMovies={getMovies} />
 					</div>
 				</div>
 			</Container>

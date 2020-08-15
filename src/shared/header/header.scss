@@ -32,7 +32,12 @@ header {
                     width: 280px;
                     text-indent: 15px;
                     transition: $transition;
-
+                    box-shadow: $box-shadow;
+                    background: #242526;
+                    border: none;
+                    ::-webkit-input-placeholder{
+                        color:red;
+                    }
                     &:focus {
                         width: 300px;
                     }
@@ -42,13 +47,17 @@ header {
                         outline: none;
                     }
                 }
-
+                ::-webkit-input-placeholder{
+                    color: $secondaryColor;
+                    font-size:$medium-light ;
+                }
                 .fa {
                     position: absolute;
                     left: 7px;
-                    top: 10px;
+                    top: 12px;
                     z-index: 555;
                     color: $secondaryColor;
+                    font-size:$medium-light ;
                 }
             }
 
@@ -159,6 +168,22 @@ header {
 
                 .active {
                     color: $mainColor;
+                }
+            }
+        }
+    }
+}
+
+
+@media(max-width:768px){
+    header {
+        .navbar {
+            form{
+                width: 100%;
+                .form-group {
+                    .form-control{
+                        width: 100%;
+                    }
                 }
             }
         }

@@ -1,14 +1,19 @@
 import React from 'react';
-import './movies-categories.scss';
+import './list-categories.scss';
 
-const MoviesCategories = (props) => {
+const ListCategories = (props) => {
 	const categoryName = (type, title, categoryName) => {
 		props.getMovies({ type: type, title: title, categoryName: categoryName });
 	};
 
 	return (
-		<section className='movies-categories'>
+		<section className='list-categories'>
 			<ul className='list-unstyled'>
+			<li className='nav-item'>
+					<h6 onClick={() => categoryName('popular', 'Popular', 'popular')}>
+						Popular
+					</h6>
+				</li>
 				<li className='nav-item'>
 					<h6
 						onClick={() =>
@@ -28,17 +33,10 @@ const MoviesCategories = (props) => {
 						Upcoming
 					</h6>
 				</li>
-				<li className='nav-item'>
-					<h6 onClick={() => categoryName('popular', 'Popular', 'popular')}>
-						Popular
-					</h6>
-				</li>
-				{/* <Link className='nav-item'>
-					<h6 onClick={() => props.getTvShow('top_rated')}>Top Rated</h6>
-				</Link> */}
+				
 			</ul>
 		</section>
 	);
 };
 
-export default MoviesCategories;
+export default ListCategories;

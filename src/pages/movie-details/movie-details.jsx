@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import './movie-details.scss';
-import { movieDetails, URL_IMAGE } from '../../services/movies';
+import { movieDetails, URL_IMAGE, videoMovieId } from '../../services/movies';
+import ModalVideo from 'react-modal-video'
+
 const MovieDetails = (props) => {
 	const [movie, setMovie] = useState({});
 	const [movieCountry, setMovieCountry] = useState([]);
 	const [genres, setGenres] = useState([]);
+	const [openVedio, setOpenVedio] = useState(false);
 
+	const [videoId, setVideoId] = useState();
+	
 	// const [loadSpinner, setloadSpinner] = useState(false);
 	const ID = props.match.params.id;
 	useEffect(() => {
+		window.scrollTo({
+			top: 0,
+			left: 0,
+		  });
 		getMovieDetails();
-	}, [ID]);
+		getVideoId();
+	}, [ID,videoId]);
 
 	function getMovieDetails() {
 		// setloadSpinner(true);
@@ -27,16 +37,35 @@ const MovieDetails = (props) => {
 				throw new Error(error.message);
 			});
 	}
+
+function getVideoId() {
+	videoMovieId(ID)
+		.then(({data}) => {
+				console.log(data);
+				setVideoId(data?.results[0]?.key);
+				console.log(videoId)
+			})
+			.catch((error) => {
+				throw new Error(error.message);
+			});
+	}
+
+	
 	return (
 		<section className='movie-details'>
 			<div className='background-poster'>
-				{movie.backdrop_path != null ? <img src={`${URL_IMAGE}` + movie.backdrop_path} alt='poster movie' /> : <img src={`${URL_IMAGE}` + movie.poster_path} alt='poster movie' />}
+				{movie.backdrop_path != null ? (
+					<img src={`${URL_IMAGE}` + movie.backdrop_path} alt='poster movie' />
+				) : (
+					<img src={`${URL_IMAGE}` + movie.poster_path} alt='poster movie' />
+				)}
 			</div>
 			<div className='container'>
 				<div className='row'>
 					<div className='col-md-4'>
 						<div className='poster-movie'>
 							<img src={`${URL_IMAGE}` + movie.poster_path} alt='posterOne' />
+							<i className="fa fa-play-circle-o fa-3x" aria-hidden="true" onClick={() => setOpenVedio(true)}></i>
 						</div>
 					</div>
 					<div className='col-md-8'>
@@ -73,11 +102,19 @@ const MovieDetails = (props) => {
 								Country :<span className='ml-2'>{movieCountry}</span>
 							</h4>
 							<h4>
-							Vote Count :<span className='ml-2'>{movie.vote_count}</span>
+								Vote Count :<span className='ml-2'>{movie.vote_count}</span>
 							</h4>
 							<div>
 								<h4>Overview :</h4>
 								<span>{movie.overview}</span>
+							</div>
+							<div>
+								<ModalVideo
+									channel='youtube'
+									isOpen={openVedio}
+									videoId={videoId}
+									onClose={() => setOpenVedio(false)}
+								/>
 							</div>
 						</div>
 					</div>

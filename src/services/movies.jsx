@@ -24,10 +24,10 @@ export async function searchMovies(keyword) {
     return response;
 }
 
-// export async function TvShow(typeMovies,numberPage) {
-//     let response = await axios.get(`${URL_API}tv/${typeMovies}${API_KEY}&language=en-US&page=${numberPage}`)
-//     return response;
-// }
+export async function videoMovieId(Id) {
+    let response = await axios.get(`${URL_API}movie/${Id}/videos${API_KEY}&language=en-US`)
+    return response;
+}
 
 
 

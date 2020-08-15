@@ -11,6 +11,7 @@
     "font-awesome": "^4.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-modal-video": "^1.2.5",
     "react-reactstrap-pagination": "^2.0.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",

@@ -1,6 +1,6 @@
 @import "../../scss/variables";
 
-.movies-categories {
+.list-categories {
     padding: $paddingTitle;
     margin-top: $margin-top;
     z-index: 555;
@@ -19,7 +19,6 @@
         .nav-item {
             text-decoration: none;
             color: $secondaryColor;
-
             h6 {
                 cursor: pointer;
             }
