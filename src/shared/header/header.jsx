@@ -36,7 +36,7 @@ const Header = () => {
 		<header>
 			<Navbar className='navbar'>
 				<Container>
-					<NavLink className='navbar-brand' to='/home'>
+					<NavLink className='navbar-brand' to='/'>
 						Movies App
 					</NavLink>
 
@@ -74,7 +74,7 @@ const Header = () => {
 					</form>
 					<ul className='list-unstyled'>
 						<li>
-							<NavLink exact className='nav-item' to='/home'>
+							<NavLink exact className='nav-item' to='/'>
 								Home
 							</NavLink>
 						</li>

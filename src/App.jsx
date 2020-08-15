@@ -11,8 +11,7 @@ function App() {
 		<BrowserRouter>
 			<div className='App'>
 				<Header />
-				{/* <Redirect to='/home' /> */}
-				<Route exact path='/home' component={Home} />
+				<Route exact path='/' component={Home} />
 				<Route exact path='/movies/:type' component={Category} />
 				<Route exact path='/movie-details/:id' component={MovieDetails} />
 				<Footer />
