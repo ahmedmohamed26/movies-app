@@ -50,13 +50,6 @@ function getVideoId() {
 	
 	return (
 		<section className='movie-details'>
-			<div className='background-poster'>
-				{movie.backdrop_path != null ? (
-					<img src={`${URL_IMAGE}` + movie.backdrop_path} alt='poster movie' />
-				) : (
-					<img src={`${URL_IMAGE}` + movie.poster_path} alt='poster movie' />
-				)}
-			</div>
 			<div className='container'>
 				<div className='row'>
 					<div className='col-md-4'>

@@ -156,7 +156,7 @@ header {
                                 padding: 5px 15px;
                                 display:grid;
                                 &:hover {
-                                    color: #fff;
+                                    color:  $background;
                                     background: $mainColor;
                                 }
                             }

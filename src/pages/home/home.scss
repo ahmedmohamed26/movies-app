@@ -105,7 +105,7 @@
                     bottom: 0;
                     margin: auto;
                     background: $mainColor;
-                    opacity: .3;
+                    opacity: .1;
                     height: 0;
                     width: 0;
                     transition: $transition;
@@ -124,7 +124,7 @@
                     margin: auto;
                 }
                 &:hover .vote-average {
-                    background: $gray-dark;
+                    background:  $background;
                     color: $mainColor;
     
                 }

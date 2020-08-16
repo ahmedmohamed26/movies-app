@@ -74,7 +74,7 @@
                 margin: auto;
                 background: $mainColor;
                 border-radius: $border-radius;
-                opacity: .3;
+                opacity: .1;
                 height: 0;
                 width: 0;
                 transition: $transition;
@@ -94,7 +94,7 @@
             }
 
             &:hover .vote-average {
-                background: $gray-dark;
+                background:  $background;
                 color: $mainColor;
 
             }
@@ -136,7 +136,7 @@
                 .page-link {
                     border-radius: 5px;
                     background: $mainColor;
-                    color: #fff;
+                    color:  $background;
                     border: none;
 
                     &:focus {
