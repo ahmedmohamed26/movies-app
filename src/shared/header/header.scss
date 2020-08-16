@@ -62,7 +62,7 @@ header {
 
             .list-movies {
                 background: #242526;
-                width: 350px;
+                width: 300px;
                 height: auto;
                 max-height: 450px;
                 overflow-y: scroll;
@@ -180,6 +180,9 @@ header {
                 .form-group {
                     .form-control{
                         width: 100%;
+                        &:focus{
+                            width: 100% !important;
+                        }
                     }
                 }
             }
