@@ -2,7 +2,6 @@
 
 # dependencies
 .env
-config_keys.js
 /node_modules
 /.pnp
 .pnp.js
