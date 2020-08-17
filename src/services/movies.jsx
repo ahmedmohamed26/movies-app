@@ -1,10 +1,8 @@
 import axios from 'axios';
 
 const URL_API = 'https://api.themoviedb.org/3/';
-const API_KEY =`${process.env.REACT_APP_API_KEY}`
+const API_KEY = 'a95dde4e97e6a7820156b4cbdab88801';
 export const URL_IMAGE = 'https://image.tmdb.org/t/p/w500/';
-
-
 
 export async function NowPlayingMovies(typeMovies,numberPage) {
     let response = await axios.get(`${URL_API}movie/${typeMovies}?api_key=${API_KEY}&language=en-US&page=${numberPage}`)
