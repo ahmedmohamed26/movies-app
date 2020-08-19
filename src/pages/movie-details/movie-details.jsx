@@ -81,12 +81,12 @@ function getVideoId() {
 							<h4>
 								Release year :
 								<span className='ml-2'>
-									{new Date(movie.release_date).getFullYear()}
+									{ movie.release_date ? new Date(movie.release_date).getFullYear() : null}
 								</span>
 							</h4>
 							<h4>
 								Production budget :
-								<span className='ml-2'>{movie.budget} $</span>
+								<span className='ml-2'>{movie.budget ? `${movie.budget} $` : 'Not Found'}</span>
 							</h4>
 							<h4>
 								Country :<span className='ml-2'>{movieCountry}</span>
