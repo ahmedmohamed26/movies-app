@@ -86,7 +86,7 @@ function getVideoId() {
 							</h4>
 							<h4>
 								Production budget :
-								<span className='ml-2'>{movie.budget ? `${movie.budget} $` : 'Not Found'}</span>
+								<span className='ml-2'>{movie.budget ? `${movie.budget} $` : null}</span>
 							</h4>
 							<h4>
 								Country :<span className='ml-2'>{movieCountry}</span>
