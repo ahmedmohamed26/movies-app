@@ -1,6 +1,11 @@
 @import "../../scss/variables";
 
 header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
     .navbar-brand {
         padding: 1rem 0;
         color: $mainColor;
